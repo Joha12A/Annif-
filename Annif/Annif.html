@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Célébration d'Anniversaire</title>
+    <link rel="stylesheet" href="Annif.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="flotter">
+        <header>
+            <div class="container">
+                <h1><a href="#">Joyeux Anniversaire!</a></h1>
+                <nav>
+                    <ul class="tab">
+                        <li><a href="Accueil.html" target="_blank">Accueil</a></li>
+                        <li><a href="Cadeaux.html" target="_blank">Cadeaux</a></li>
+                        <li><a href="Contact.html" target="_blank">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="intro">
+            <div class="container">
+                <h2>Découvrez le monde des anniversaires!</h2>
+                <p>Aujourd'hui, nous célébrons tous les incroyables individus nés le 05 Décembre en particulier notre cher ami, camarade, frangin, fils Johanès. Que cette journée spéciale apporte de la joie, du bonheur et des souvenirs mémorables à chacun d'entre nous. Rejoignez-nous pour honorer tous ceux qui fêtent leur anniversaire en ce jour exceptionnel !</p>
+            </div>
+        </section>
+
+        <audio id="birthdayMusic" loop preload="auto">
+            <source src="Anne-Marie - Birthday (320).mp3" type="audio/mp3">
+        </audio>
+
+        <button onclick="toggleMusic()" id="musicBtn">Jouer</button>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2023 Tous droits réservés. Conçu avec ❤ par Johanès AMOUSSOUGA</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleMusic() {
+            const music = document.getElementById("birthdayMusic");
+            const button = document.getElementById("musicBtn");
+
+            if (music.paused) {
+                music.play();
+                button.textContent = "Pause";
+            } else {
+                music.pause();
+                button.textContent = "Jouer";
+            }
+        }
+
+    </script>
+</body>
+</html>

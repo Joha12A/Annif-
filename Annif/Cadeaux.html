@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadeaux - Anniversaire</title>
+    <link rel="stylesheet" href="Cadeaux.css">
+</head>
+<body>
+    <section class="container enigma">
+        <p>D'abord on fait un petit jeu ok?😊😁<br/>Décodez ce message : "OyueJx ArvSieirenna!"</p>
+        <input type="text" id="response">
+        <button onclick="checkAnswer()">Valider</button>
+
+        <div id="result" style="display: none;">
+            <p>Bravo!😁Tu es parvenu à trouver la bonne réponse ainsi tu as l'intention de m'offrir un présent?</p>
+            <button onclick="location.href='Liste cadeaux.html'">OUI</button>
+            <button onclick="showMessage()">NON</button>
+        </div>
+
+        <div id="birthdayWish" style="display: none;">
+            <p>Ce n'est pas grave ! N'oublie pas de me souhaiter un Joyeux Anniversaire !</p>
+        </div>
+    </section>
+
+    <script>
+        (function() {
+            function checkAnswer() {
+                var response = document.getElementById('response').value;
+                if (response.toLowerCase() === 'joyeux anniversaire') {
+                    document.getElementById('result').style.display = 'block';
+                } else {
+                    alert('Réponse incorrecte, essayez à nouveau.');
+                }
+            }
+
+            function showMessage() {
+                document.getElementById('birthdayWish').style.display = 'block';
+                document.getElementById('result').style.display = 'none';
+            }
+
+            // Lier les fonctions à l'objet global pour qu'elles soient accessibles depuis le HTML
+            window.checkAnswer = checkAnswer;
+            window.showMessage = showMessage;
+        })();
+
+    </script>
+</body>
+</html>

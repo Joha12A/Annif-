@@ -1,0 +1,116 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('photo_2021-04-05_18-27-33.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #e5f5ff;
+    color: #333;
+}
+
+header, footer {
+    background-color: #0077b6;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+}
+
+main {
+    padding: 40px 0;
+    background-color: #ffffff;
+    margin: 30px 0; 
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    color: orangered;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+main p {
+    color: blue;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer {
+    padding: 10px 0;
+    margin-top: 110px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.nav-btn {
+    background-color: #e63946;
+    color: #FFFFFF; 
+    text-decoration: none;
+    padding: 12px 36px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.nav-btn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+    transition: all 0.3s;
+    border-radius: 25px;
+}
+
+.nav-btn:hover {
+    background-color: #b8273e;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+}
+
+.nav-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:hover:before {
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+span{
+    font-family: 'Times New Roman', sans serif
+}

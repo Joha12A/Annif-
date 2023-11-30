@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadeaux d'Anniversaire</title>
+    <link rel="stylesheet" href="Liste cadeaux.css">
+    <script>
+        function rotateCard(btn){
+            var card = btn.parentElement.parentElement;
+            card.style.transform = "rotateY(180deg)";
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h2>PRESENTS A OFFRIR</h2>
+        <audio id="birthdayMusic" loop preload="auto">
+            <source src="Le Fou Du Roi CD 1 TRACK 10 (320).mp3" type="audio/mp3">
+            Votre navigateur ne supporte pas l'élément audio.
+        </audio>
+
+            <button onclick="toggleMusic()">Jouer</button>
+    <p class="info">Vous pouvez choisir au maximum deux cadeaux pour offrir. Merci pour votre générosité !</p>
+    <div class="cadeaux">
+        <div class="cadeau" data-icon="restaurant">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon">🍽️</div>
+                    <span>Un tour au restaurant</span>
+                    <button class="ok-btn btn-ok">OK</button>
+                </div>
+                <div class="card-back">
+                    <span>J'espère que tu es prêt à partager une frite avec moi ! 🍟</span>
+                </div>
+            </div>
+        </div>
+        <div class="cadeau" data-icon="moto">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon">🏍️</div>
+                    <span>Une moto</span>
+                    <button class="ok-btn btn-ok">OK</button>
+                </div>
+                <div class="card-back">
+                    <span>Vroum Vroum ! Prépare-toi à m'accompagner pour des balades à toute vitesse ! 🏍️💨</span>
+                </div>
+            </div>
+        </div>
+        <div class="cadeau" data-icon="enveloppe">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon">💌</div>
+                    <span>Une enveloppe</span>
+                    <button class="ok-btn btn-ok">OK</button>
+                </div>
+                <div class="card-back">
+                    <span>Un chèque ? Un poème ? Une blague papier ? Je prend tout en fait🤗💌</span>
+                </div>
+            </div>
+        </div>
+        <div class="cadeau" data-icon="gateau">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon">🎂</div>
+                   <span> Un gâteau</span>
+                    <button class="ok-btn btn-ok">OK</button>
+                </div>
+                <div class="card-back">
+                    <span>Attention, le premier qui me pique une cerise aura affaire à moi ! 🍒🍰</span>
+                </div>
+            </div>
+        </div>
+        <div class="cadeau" data-icon="carte">
+    
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon">🎉</div>
+                    <span>Une carte de vœux</span>
+                    <button class="ok-btn btn-ok" onclick="rotateCard(this)">OK</button>
+                </div>
+                <div class="card-back">
+                    <h3>Écris-moi quelque chose de doux... ou une blague, je suis d'humeur ! 😁</h3>
+                    <form action="javascript:void(0);" onsubmit="sendWishes()">
+                        <textarea placeholder="Écrivez votre message ici..." id="wishMessage"></textarea>
+                        <input type="submit" value="Envoyer par WhatsApp">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="cadeau" data-icon="autre">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon">❓</div>
+                    <span>Autres</span>
+                    <button class="ok-btn btn-ok">OK</button>
+                </div>
+                <div class="card-back">
+                    <span>Surprise ! Qu'as-tu en tête ? Espérons que ce ne soit pas une autre chaussette ! 🧦😂</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    
+        <script>
+            document.querySelectorAll('.btn-ok').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const card = this.closest('.cadeau');
+
+                    // Vérifiez si ce n'est pas la carte de vœux avant d'appliquer la logique de retournement
+                    if (!card.hasAttribute('data-icon') || card.getAttribute('data-icon') !== 'carte') {
+                        card.classList.toggle('card-flipped');
+                        
+                        setTimeout(() => {
+                            card.classList.remove('card-flipped');
+                        }, 20000);
+                    }
+                });
+            });
+
+
+            let giftsSelected = 0;
+
+            document.querySelectorAll('.btn-ok').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    giftsSelected++;
+
+                    if (giftsSelected >= 2) {
+                        alert("Vous avez atteint la limite de cadeaux que vous pouvez offrir cliquez sur OK pour le second cadeau!");
+                        document.querySelectorAll('.btn-ok').forEach(btn => btn.disabled = true);
+                    }
+                });
+            });
+                        // JavaScript pour gérer la réponse à l'énigme
+            function afficherExplosion() {
+                const explosionElement = document.getElementById("explosion");
+                explosionElement.classList.add("explosion-active");
+
+                // Jouer de la musique d'anniversaire
+                const audioElement = new Audio("Shape of You.mp3");
+                audioElement.play();
+            }
+
+            function sendWishes() {
+                let message = document.getElementById("wishMessage").value;
+                if(message) {
+                    let phoneNumber = "22965104864";
+                    let whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+                    window.open(whatsappURL);
+                } else {
+                    alert("Veuillez écrire un message avant de l'envoyer.");
+                }
+            }
+
+            function sendWishes() {
+                const message = encodeURIComponent(document.getElementById('wishMessage').value);
+                const whatsappURL = `https://wa.me/22965104864?text=${message}`;
+                window.open(whatsappURL, '_blank');
+
+                const card = document.querySelector('.cadeau[data-icon="carte"]');
+                card.classList.remove('card-flipped');
+            }
+
+            function rotateCard(btn) {
+                var card = btn.closest('.cadeau');
+                card.classList.toggle('card-flipped');
+            }
+
+            function toggleMusic() {
+                const music = document.getElementById("birthdayMusic");
+                const button = event.currentTarget;
+
+                if (music.paused) {
+                    music.play();
+                    button.textContent = "Pause";
+                } else {
+                    music.pause();
+                    button.textContent = "Jouer";
+                }
+            }
+        </script>
+            <div class="navigation">
+                <a href="Accueil.html" class="nav-btn" title="Allez à l'accueil">Accueil</a>
+                <a href="Contact.html" class="nav-btn" title="Allez aux contacts">Contact</a>
+            </div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 Tous droits réservés. Célébration organisée par Johanès AMOUSSOUGA</p>
+    </div>
+</footer>
+
+</body>
+</html>
